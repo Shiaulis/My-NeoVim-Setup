@@ -14,7 +14,27 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   "folke/neodev.nvim",
   "folke/which-key.nvim",
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  {
+      "ellisonleao/gruvbox.nvim",
+      priority = 1000,
+      config = true,
+      opts = ...
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
 }
 
 local opts = {}
