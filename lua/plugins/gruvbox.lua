@@ -1,1 +1,9 @@
-vim.cmd([[colorscheme gruvbox]])
+return {
+  { "ellisonleao/gruvbox.nvim" },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
+}
