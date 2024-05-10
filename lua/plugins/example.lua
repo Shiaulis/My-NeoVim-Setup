@@ -1,6 +1,4 @@
--- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-if true then return {} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 --
@@ -9,14 +7,13 @@ if true then return {} end
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
-
-  -- Configure LazyVim to load gruvbox
+  -- turn off tabs in bufferline
   {
-    "LazyVim/LazyVim",
+    "akinsho/nvim-bufferline.lua",
     opts = {
-      colorscheme = "gruvbox",
+      options = {
+        show_tab_indicators = false,
+      },
     },
   },
 
@@ -27,10 +24,6 @@ return {
     opts = { use_diagnostic_signs = true },
   },
 
-  -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
-
-  -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
@@ -44,7 +37,7 @@ return {
     dependencies = { "hrsh7th/cmp-emoji" },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
+    table.insert(opts.sources, { name = "emoji" })
     end,
   },
 
